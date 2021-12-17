@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useHistory} from "react-router-dom"
 import "./Auth.css"
 
 
@@ -7,7 +7,7 @@ export const Login = () => {
     const username = useRef()
     const password = useRef()
     const invalidDialog = useRef()
-    const history = useNavigate()
+    const history = useHistory()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -26,7 +26,7 @@ export const Login = () => {
             .then(res => res.json())
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
-                    localStorage.setItem("lu_token", res.token)
+                    localStorage.setItem("token", res.token)
                     history.push("/")
                 }
                 else {

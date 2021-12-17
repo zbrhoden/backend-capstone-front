@@ -1,5 +1,5 @@
 import React from "react"
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Route} from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
@@ -7,21 +7,24 @@ import { Register } from "./auth/Register"
 
 export const Discounts = () => (
     <>
-        <Routes render={() => {
-            if (localStorage.getItem("lu_token")) {
+        <Route render={() => {
+            if (localStorage.getItem("token")) {
                 return <>
-                    <Routes>
-                        <Route element={<NavBar />} />
-                        <Route element={<ApplicationViews />} />
-                    </Routes>
+                    <Route>
+                        <NavBar />
+                        {/* <ApplicationViews /> */}
+                    </Route>
                 </>
             } else {
-                return <Navigate to="/login" />
+                return <Route to="/login" />
             }
         }} />
-        <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-        </Routes>
+        <Route path="/login">
+            <Login />
+        </Route>
+
+        <Route path="/register">
+            <Register />
+        </Route>
     </>
 )

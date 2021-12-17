@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useHistory} from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = () => {
-    const history = useNavigate()
+    const history = useHistory()
     return (
         <ul className="navbar">
             <li className="navbar__item">
@@ -16,11 +16,11 @@ export const NavBar = () => {
                 Navigation link
             </li>
             {
-                (localStorage.getItem("lu_token") !== null) ?
+                (localStorage.getItem("token") !== null) ?
                     <li className="nav-item">
                         <button className="nav-link fakeLink"
                             onClick={() => {
-                                localStorage.removeItem("lu_token")
+                                localStorage.removeItem("token")
                                 history.push({ pathname: "/" })
                             }}
                         >Logout</button>

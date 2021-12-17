@@ -1,16 +1,14 @@
 import React from "react"
-import { render } from "react-dom";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import ReactDOM from "react-dom"
+import { BrowserRouter as Router } from "react-router-dom"
 import { Discounts } from "./components/Discounts.js"
 import "./index.css"
 
-const rootElement = document.getElementById("root");
-
-render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Discounts />} />
-    </Routes>
-  </BrowserRouter>,
-  rootElement
-);
+ReactDOM.render(
+    <React.StrictMode>
+        <Router>
+            <Discounts/>
+        </Router>
+    </React.StrictMode>,
+    document.getElementById("root")
+)
