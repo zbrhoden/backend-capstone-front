@@ -13,7 +13,7 @@ export const NavBar = () => {
                 Navigation link
             </li>
             <li className="navbar__item">
-                Navigation link
+                <Link className="nav-link" to="/discounts">Discounts</Link>
             </li>
             {
                 (localStorage.getItem("token") !== null) ?

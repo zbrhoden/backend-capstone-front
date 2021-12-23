@@ -12,7 +12,7 @@ export const Discounts = () => (
                 return <>
                     <Route>
                         <NavBar />
-                        {/* <ApplicationViews /> */}
+                        <ApplicationViews />
                     </Route>
                 </>
             } else {
