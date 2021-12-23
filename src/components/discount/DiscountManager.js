@@ -26,7 +26,6 @@ export const getInventory = () => {
 }
 
 export const createDiscount = (newDiscount) => {
-    console.log("creating discount",JSON.stringify(newDiscount))
     return fetch("http://localhost:8000/discount", {
         method: "POST",
         headers: {
@@ -39,14 +38,14 @@ export const createDiscount = (newDiscount) => {
 }
 
 export const deleteDiscount = discountId => {
-    return fetch(`http://localhost:8000/discount${ discountId }`, {
+    const request = `http://localhost:8000/discount/${ discountId }`
+        console.log("request", request)
+    return fetch(request, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
     })
-        .then(response => response.json())
-        .then(getDiscount)
 }
 
 export const updateDiscount = discountId => {
