@@ -16,7 +16,7 @@ export const ApplicationViews = () => {
         <Route exact path="/discounts/new">
             <DiscountForm />
         </Route>
-        <Route exact path="/discounts/edit">
+        <Route exact path="/discounts/edit/:discountId(\d+)">
             <EditDiscount />
         </Route>
         

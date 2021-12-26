@@ -1,10 +1,19 @@
-export const getDiscount = () => {
+export const getAllDiscounts = () => {
     return fetch("http://localhost:8000/discount", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
     })
         .then(response => response.json())
+}
+
+export const getDiscount = (discountId) => {
+    return fetch(`http://localhost:8000/discount/${discountId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+    })
+        .then(res => res.json())
 }
 
 export const getCategory = () => {
@@ -56,5 +65,5 @@ export const updateDiscount = discountId => {
         }
     })
         .then(response => response.json())
-        .then(getDiscount)
+        .then(getAllDiscounts)
 }
