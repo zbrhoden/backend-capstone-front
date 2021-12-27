@@ -1,5 +1,5 @@
 export const getAllDiscounts = () => {
-    return fetch("http://localhost:8000/discount", {
+    return fetch("https://discounts-r-us.herokuapp.com/discount", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -8,7 +8,7 @@ export const getAllDiscounts = () => {
 }
 
 export const getDiscount = (discountId) => {
-    return fetch(`http://localhost:8000/discount/${discountId}`, {
+    return fetch(`https://discounts-r-us.herokuapp.com/discount/${discountId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -17,7 +17,7 @@ export const getDiscount = (discountId) => {
 }
 
 export const getCategory = () => {
-    return fetch("http://localhost:8000/category", {
+    return fetch("https://discounts-r-us.herokuapp.com/category", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -26,7 +26,7 @@ export const getCategory = () => {
 }
 
 export const getInventory = () => {
-    return fetch("http://localhost:8000/inventory", {
+    return fetch("https://discounts-r-us.herokuapp.com/inventory", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -35,7 +35,7 @@ export const getInventory = () => {
 }
 
 export const createDiscount = (newDiscount) => {
-    return fetch("http://localhost:8000/discount", {
+    return fetch("https://discounts-r-us.herokuapp.com/discount", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const createDiscount = (newDiscount) => {
 }
 
 export const deleteDiscount = discountId => {
-    const request = `http://localhost:8000/discount/${ discountId }`
+    const request = `https://discounts-r-us.herokuapp.com/discount/${ discountId }`
         console.log("request", request)
     return fetch(request, {
         method: "DELETE",
@@ -59,7 +59,7 @@ export const deleteDiscount = discountId => {
 
 export const updateDiscount = (updatedDiscount) => {
     console.log("Check",updatedDiscount)
-    return fetch(`http://localhost:8000/discount/${ updatedDiscount.id }`, {
+    return fetch(`https://discounts-r-us.herokuapp.com/discount/${ updatedDiscount.id }`, {
         method: "PUT",
         headers:{
             "Content-Type": "application/json",
