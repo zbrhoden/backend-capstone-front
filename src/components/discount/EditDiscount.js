@@ -9,7 +9,7 @@ export const EditDiscount = () => {
     const { discountId } = useParams()
     const [category, setCategory] = useState([])
     const [inventory, setInventory] = useState([])
-    const [discount, setDiscount] = useState({})
+    const [discount] = useState({})
 
     /*
         Since the input fields are bound to the values of
@@ -19,18 +19,17 @@ export const EditDiscount = () => {
 
     useEffect(() => {
         getDiscount(discountId)
-        .then(res => setDiscount(res))
+        .then(discount => setCurrentDiscount({ 
+            id: discount.id,
+            inventory: discount.inventory.id,
+            day_of_week: discount.day_of_week,
+            quantity: discount.quantity,
+            store: discount.store.id,
+            category: discount.category.id,
+            discount_percentage: discount.discount_percentage}))
     }, [])
-    console.log("discount", discount)
 
-    const [currentDiscount, setCurrentDiscount] = useState({
-        inventory: discount.inventory,
-        day_of_week: discount.day_of_week,
-        quantity: discount.quantity,
-        store: discount.store,
-        category: discount.category,
-        discount_percentage: discount.discount_percentage
-    })
+    const [currentDiscount, setCurrentDiscount] = useState({})
     
 
     useEffect(() => {
@@ -48,8 +47,8 @@ export const EditDiscount = () => {
     }
 
     const constructNewDiscount = () => {
-        const discountCopy = { ...discount }
-        discountCopy.discountId = parseInt(discountCopy.id)
+        const discountCopy = { ...currentDiscount }
+        discountCopy.id = parseInt(discountCopy.id)
         updateDiscount(discountCopy)
             .then(history.push(`/discounts`))
     }
@@ -62,7 +61,7 @@ export const EditDiscount = () => {
                     <label htmlFor="inventory">Item: </label>
                     <select type="text" name="inventory" required autoFocus className="form-control"
                     placeholder="inventory"
-                    value={discount.inventory}
+                    value={currentDiscount.inventory}
                     onChange={handleControlledInputChange}>
                     <option>Choose an Item</option>
                     {
@@ -123,16 +122,9 @@ export const EditDiscount = () => {
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
-
-                    const discount = {
-                        inventory: currentDiscount.inventory,
-                        day_of_week: currentDiscount.day_of_week,
-                        quantity: currentDiscount.quantity,
-                        store: currentDiscount.store,
-                        category: currentDiscount.category,
-                        discount_percentage: currentDiscount.discount_percentage
-                    }
+                    constructNewDiscount()
                 }}
+                
                 className="btn btn-primary">Submit</button>
         </form>
     )

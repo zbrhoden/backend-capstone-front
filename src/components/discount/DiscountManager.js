@@ -57,13 +57,15 @@ export const deleteDiscount = discountId => {
     })
 }
 
-export const updateDiscount = discountId => {
-    return fetch(`http://localhost:8000/discount/${ discountId }`, {
-        method: "POST",
+export const updateDiscount = (updatedDiscount) => {
+    console.log("Check",updatedDiscount)
+    return fetch(`http://localhost:8000/discount/${ updatedDiscount.id }`, {
+        method: "PUT",
         headers:{
+            "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("token")}`
-        }
+        },
+        body: JSON.stringify(updatedDiscount)
     })
-        .then(response => response.json())
-        .then(getAllDiscounts)
+        
 }
