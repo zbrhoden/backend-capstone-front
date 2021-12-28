@@ -25,6 +25,15 @@ export const getCategory = () => {
         .then(response => response.json())
 }
 
+export const getStore = (storeId) => {
+    return fetch(process.env.REACT_APP_BACKEND_URL+`/store/${storeId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+    })
+        .then(res => res.json())
+}
+
 export const getInventory = () => {
     return fetch(process.env.REACT_APP_BACKEND_URL+"/inventory", {
         headers:{
