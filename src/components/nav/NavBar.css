@@ -1,4 +1,5 @@
 .navbar {
+    background-color:rgb(80,133,165);
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;

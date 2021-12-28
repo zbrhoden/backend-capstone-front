@@ -1,0 +1,22 @@
+.discount-list {
+    display: flex;
+    flex-flow: row;
+    margin: 10px;
+    line-height: 30px;
+}
+
+.discount-name {
+    margin-right: 10px;
+}
+
+.Id-spot {
+    margin-right: 5px;
+}
+
+.discount-percent-spot {
+    margin-right: 5px;
+}
+
+.Edit-button {
+    margin-left: 10px;
+}

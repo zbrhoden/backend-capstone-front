@@ -5,7 +5,7 @@ import "./NavBar.css"
 export const NavBar = () => {
     const history = useHistory()
     return (
-        <ul className="navbar">
+        <nav className="navbar">
             <li className="navbar__item">
                 <Link className="nav-link" to="/discounts/new">Create Discounts</Link>
             </li>
@@ -36,6 +36,6 @@ export const NavBar = () => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </ul>
+            }        </nav>
     )
 }
