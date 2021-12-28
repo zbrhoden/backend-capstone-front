@@ -1,5 +1,5 @@
 export const getAllDiscounts = () => {
-    return fetch("https://discounts-r-us.herokuapp.com/discount", {
+    return fetch(process.env.REACT_APP_BACKEND_URL+"/discount", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -8,7 +8,7 @@ export const getAllDiscounts = () => {
 }
 
 export const getDiscount = (discountId) => {
-    return fetch(`https://discounts-r-us.herokuapp.com/discount/${discountId}`, {
+    return fetch(process.env.REACT_APP_BACKEND_URL+`/discount/${discountId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -17,7 +17,7 @@ export const getDiscount = (discountId) => {
 }
 
 export const getCategory = () => {
-    return fetch("https://discounts-r-us.herokuapp.com/category", {
+    return fetch(process.env.REACT_APP_BACKEND_URL+"/category", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -26,7 +26,7 @@ export const getCategory = () => {
 }
 
 export const getInventory = () => {
-    return fetch("https://discounts-r-us.herokuapp.com/inventory", {
+    return fetch(process.env.REACT_APP_BACKEND_URL+"/inventory", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
@@ -35,7 +35,7 @@ export const getInventory = () => {
 }
 
 export const createDiscount = (newDiscount) => {
-    return fetch("https://discounts-r-us.herokuapp.com/discount", {
+    return fetch(process.env.REACT_APP_BACKEND_URL+"/discount", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const createDiscount = (newDiscount) => {
 }
 
 export const deleteDiscount = discountId => {
-    const request = `https://discounts-r-us.herokuapp.com/discount/${ discountId }`
+    const request = process.env.REACT_APP_BACKEND_URL+`/discount/${ discountId }`
         console.log("request", request)
     return fetch(request, {
         method: "DELETE",
@@ -59,7 +59,7 @@ export const deleteDiscount = discountId => {
 
 export const updateDiscount = (updatedDiscount) => {
     console.log("Check",updatedDiscount)
-    return fetch(`https://discounts-r-us.herokuapp.com/discount/${ updatedDiscount.id }`, {
+    return fetch(process.env.REACT_APP_BACKEND_URL+`/discount/${ updatedDiscount.id }`, {
         method: "PUT",
         headers:{
             "Content-Type": "application/json",

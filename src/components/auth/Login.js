@@ -12,7 +12,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch("https://discounts-r-us.herokuapp.com/login", {
+        return fetch(process.env.REACT_APP_BACKEND_URL+"/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
