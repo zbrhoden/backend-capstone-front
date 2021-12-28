@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { createDiscount, getCategory, getInventory} from './DiscountManager.js'
+import { createDiscount, getCategory, getInventory, getStore} from './DiscountManager.js'
 
 export const DiscountForm = () => {
     const history = useHistory()
     const [category, setCategory] = useState([])
     const [inventory, setInventory] = useState([])
+    const [store, setStore] = useState([])
     /*
         Since the input fields are bound to the values of
         the properties of this state variable, you need to
@@ -16,11 +17,14 @@ export const DiscountForm = () => {
         inventory: "",
         day_of_week: 0,
         quantity: 0,
-        store: 0,
+        store: "",
         category: "",
         discount_percentage: 0.0
     })
     
+    useEffect(() => {
+        getStore().then(data => setStore(data))
+    }, [])
 
     useEffect(() => {
         getCategory().then(data => setCategory(data))
