@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { deleteDiscount, getAllDiscounts} from "./DiscountManager"
+import { BiX } from "react-icons/bi";
 
 
 export const DiscountList = () => {
@@ -40,9 +41,9 @@ export const DiscountList = () => {
                     return <section key={discount.id} className="discount-id">
                         <div className="discount-name">{discount.inventory.name}</div>
                         <div className="delete">{discount.id}</div>
-                            <button className="btn btn-3"
+                            <button
                                 onClick={() => handleDelete(discount.id)}
-                                >Delete</button>
+                                >{BiX}</button>
                                 <Link className="nav-link" to={"/discounts/edit/"+discount.id}>Edit</Link>
             </section>
             })
