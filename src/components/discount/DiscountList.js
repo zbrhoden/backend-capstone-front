@@ -5,7 +5,6 @@ import { deleteDiscount, getAllDiscounts} from "./DiscountManager"
 
 export const DiscountList = () => {
     const [discount, setDiscount] = useState([])
-    console.log(process.env.REACT_APP_FOO)
 
     const discountFetcher = () => {
         getAllDiscounts()

@@ -81,16 +81,22 @@ export const DiscountForm = () => {
                     <input type="number" name="quantity" required autoFocus className="form-control"
                         value={currentDiscount.quantity}
                         onChange={handleControlledInputChange}
+                        
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="store">Store: </label>
-                    <input type="number" name="store" required autoFocus className="form-control"
+                <select type="text" name="store" required autoFocus className="form-control"
+                    placeholder="store"
+                    defaultValue="Choose a Store"
                         value={currentDiscount.store}
-                        onChange={handleControlledInputChange}
-                    />
+                        onChange={handleControlledInputChange}>
+                        <option>Choose a Store</option>
+                        {
+                            store.map(store => <option name="store" value={store.id}>{store.name}</option>)
+                        }
+                    </select>
                 </div>
             </fieldset>
             <fieldset>
