@@ -7,9 +7,6 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-            <Link className="nav-link" to="/discounts/edit">Edit Discounts</Link>
-            </li>
-            <li className="navbar__item">
                 <Link className="nav-link" to="/discounts/new">Create Discounts</Link>
             </li>
             <li className="navbar__item">
@@ -21,7 +18,7 @@ export const NavBar = () => {
                         <button className="nav-link fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("token")
-                                history.push({ pathname: "/" })
+                                history.push({ pathname: "/login" })
                             }}
                         >Logout</button>
                     </li> :
