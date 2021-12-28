@@ -25,13 +25,13 @@ export const getCategory = () => {
         .then(response => response.json())
 }
 
-export const getStore = (storeId) => {
-    return fetch(process.env.REACT_APP_BACKEND_URL+`/store/${storeId}`, {
+export const getAllStores = () => {
+    return fetch(process.env.REACT_APP_BACKEND_URL+"/store", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("token")}`
         }
     })
-        .then(res => res.json())
+        .then(response => response.json())
 }
 
 export const getInventory = () => {

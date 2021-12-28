@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { createDiscount, getCategory, getInventory, getStore} from './DiscountManager.js'
+import { createDiscount, getCategory, getInventory, getAllStores} from './DiscountManager.js'
 
 export const DiscountForm = () => {
     const history = useHistory()
@@ -23,7 +23,7 @@ export const DiscountForm = () => {
     })
     
     useEffect(() => {
-        getStore().then(data => setStore(data))
+        getAllStores().then(data => setStore(data))
     }, [])
 
     useEffect(() => {
