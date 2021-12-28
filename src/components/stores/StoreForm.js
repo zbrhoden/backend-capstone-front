@@ -26,7 +26,7 @@ export const StoreForm = () => {
             <h2 className="storeForm__title">Register New Store</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Day of the week: </label>
+                    <label htmlFor="name">Store Name: </label>
                     <input type="text" name="name" required autoFocus className="form-control"
                         value={currentStore.name}
                         onChange={handleControlledInputChange}
