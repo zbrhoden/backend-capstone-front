@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
 import { deleteStore, getAllStores} from "./StoreManager"
 
 
@@ -43,7 +42,6 @@ export const StoreList = () => {
                             <button className="btn btn-3"
                                 onClick={() => handleDelete(store.id)}
                                 >Delete</button>
-                                <Link className="nav-link" to={"/stores/edit/"+store.id}>Edit</Link>
             </section>
             })
         }
