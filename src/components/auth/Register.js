@@ -22,7 +22,7 @@ export const Register = () => {
                 "password": password.current.value
             }
 
-            return fetch("https://discounts-r-us.herokuapp.com/register", {
+            return fetch(process.env.REACT_APP_BACKEND_URL+"/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
