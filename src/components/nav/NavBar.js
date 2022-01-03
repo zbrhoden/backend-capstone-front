@@ -7,16 +7,16 @@ export const NavBar = () => {
     return (
         <nav className="navbar">
             <li className="navbar__item">
-                <Link className="nav-link" to="/discounts/new">Create Discounts</Link>
+                <Link style={{ textDecoration: 'none' }} className="nav-link" to="/discounts/new">Create Discounts</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to="/discounts">Discounts</Link>
+                <Link style={{ textDecoration: 'none' }} className="nav-link" to="/discounts">Discounts</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to="/stores/new">Register New Store</Link>
+                <Link style={{ textDecoration: 'none' }} className="nav-link" to="/stores/new">Register New Store</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to="/stores">Store List</Link>
+                <Link style={{ textDecoration: 'none' }} className="nav-link" to="/stores">Store List</Link>
             </li>
             {
                 (localStorage.getItem("token") !== null) ?

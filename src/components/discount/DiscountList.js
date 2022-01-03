@@ -45,13 +45,10 @@ export const DiscountList = () => {
                             <div className="discount-name">{discount.inventory.name}</div>
                             <div className="discount-percent-spot">Discount: {(Math.round(discount.discount_percentage * 10000)/100)+"%"}</div>
                         
-                        <icon-context value={{ color: "blue"}}>
-                            <BiX
-                                onClick={() => handleDelete(discount.id)}
-                                ></BiX>
-                                
-                                <AiFillEdit className="Edit-button" to={"/discounts/edit/"+discount.id}>Edit</AiFillEdit>
-                                </icon-context>
+
+                            <BiX onClick={() => handleDelete(discount.id)}></BiX>
+                            <AiFillEdit className="Edit-button" to={"/discounts/edit/"+discount.id}>Edit</AiFillEdit>
+
             </section>
             })
         }

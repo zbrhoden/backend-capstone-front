@@ -1,11 +1,13 @@
 .navbar {
-    background-color:rgb(80,133,165);
+    background-color:rgb(204,0,0);
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    height: 70px;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    vertical-align: center;
 }
