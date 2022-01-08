@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { deleteDiscount, getAllDiscounts} from "./DiscountManager"
 import { BiX } from "react-icons/bi"
-import { AiFillEdit } from "react-icons/ai"
-import {IconContext} from "react-icons"
+import { BsFillPencilFill } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
 import "./DiscountList.css"
 
 export const DiscountList = () => {
     const [discount, setDiscount] = useState([])
+    let history = useHistory()
+
 
     const discountFetcher = () => {
         getAllDiscounts()
@@ -47,8 +49,7 @@ export const DiscountList = () => {
                         
 
                             <BiX onClick={() => handleDelete(discount.id)}></BiX>
-                            <AiFillEdit className="Edit-button" to={"/discounts/edit/"+discount.id}>Edit</AiFillEdit>
-
+                            <BsFillPencilFill className="Edit-button" onClick={() => {history.push ("/discounts/edit/" + discount.id)}}></BsFillPencilFill>
             </section>
             })
         }
