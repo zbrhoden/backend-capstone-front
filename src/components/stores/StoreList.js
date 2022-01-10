@@ -53,11 +53,11 @@ export const StoreList = () => {
         { field: "id", hide: true },
         { field: "col1", headerName: "Store Name", width: 150 },
         { field: "field", headerName: "Edit/Delete", width: 150,   
-            renderCell: () => {
+            renderCell: (row) => {
             return (
               <Button
                 onClick={() => {
-                  handleDelete(store.id);
+                  handleDelete(row.id);
                 }}
               >
                 Delete

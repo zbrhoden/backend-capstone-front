@@ -61,11 +61,11 @@ export const DiscountList = () => {
         { field: "col1", headerName: "Item Name", width: 150 },
         {field: "col2", headerName: "Discount Percentage", width: 150 },
         { field: "field", headerName: "Delete", width: 150,   
-            renderCell: () => {
+            renderCell: (row) => {
             return (
               <Button
                 onClick={() => {
-                  handleDelete(discount.id);
+                  handleDelete(row.id);
                 }}
               >
                 Delete
@@ -74,14 +74,14 @@ export const DiscountList = () => {
             }
         },
         { field: "field2", headerName: "Edit", width: 150,   
-        renderCell: () => {
+        renderCell: (row) => {
         return (
         <Button 
-        onClick={() => {
-            history.push ("/discounts/edit/" + discount.id)}}>Edit
+            onClick={() => {
+                history.push ("/discounts/edit/" + row.id)}}>Edit
         </Button>
-        )
-        }}
+                )
+            }}
         ];
 
     return (
