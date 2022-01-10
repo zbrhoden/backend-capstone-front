@@ -13,6 +13,15 @@ export const DiscountForm = () => {
         provide some default values.
     */
 
+    var weekday=new Array(7);
+        weekday[0]="Monday";
+        weekday[1]="Tuesday";
+        weekday[2]="Wednesday";
+        weekday[3]="Thursday";
+        weekday[4]="Friday";
+        weekday[5]="Saturday";
+        weekday[6]="Sunday";
+
     const [currentDiscount, setCurrentDiscount] = useState({
         inventory: "",
         day_of_week: 0,
@@ -73,10 +82,21 @@ export const DiscountForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="day_of_week">Day of the week: </label>
-                    <input type="text" name="day_of_week" required autoFocus className="form-control"
-                        value={currentDiscount.day_of_week}
-                        onChange={handleControlledInputChange}
-                    />
+                    <select type="text" name="day_of_week" className="form-control"
+                    placeholder="day_of_week"
+                    defaultValue="Choose a Day"
+                    onChange={handleControlledInputChange}>
+                    <option>Choose a Day</option>
+                    [
+                    <option name="day_of_week" value= {0}>Sunday</option>
+                    <option name="day_of_week" value= {1}>Monday</option>
+                    <option name="day_of_week" value= {2}>Tuesday</option>
+                    <option name="day_of_week" value= {3}>Wednesday</option>
+                    <option name="day_of_week" value= {4}>Thursday</option>
+                    <option name="day_of_week" value= {5}>Friday</option>
+                    <option name="day_of_week" value= {6}>Saturday</option>
+                    ]
+                </select>
                 </div>
             </fieldset>
             <fieldset>

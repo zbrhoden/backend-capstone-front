@@ -5,7 +5,9 @@ import "./NavBar.css"
 export const NavBar = () => {
     const history = useHistory()
     return (
+        
         <nav className="navbar">
+            <h1 className="NavBar-brand">Discounts R Us</h1>
             <li className="navbar__item">
                 <Link style={{ textDecoration: 'none' }} className="nav-link" to="/discounts/new">Create Discounts</Link>
             </li>

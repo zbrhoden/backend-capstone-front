@@ -1,9 +1,14 @@
 .navbar {
     background-color:rgb(178, 190, 181);
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
-    height: 70px;
+
+}
+
+
+.NavBar-brand {
+    margin-left: 10px;
+    display: flex;
+    white-space:nowrap;
 }
 
 .navbar__item {
