@@ -67,7 +67,7 @@ export const DiscountForm = () => {
                     </select>
                 </div>
             </fieldset>
-            {/* <div className="form-group">
+            <div className="form-group">
                 <label htmlFor="category">Category: </label>
                 <select type="text" name="category" className="form-control"
                     placeholder="category"
@@ -78,7 +78,7 @@ export const DiscountForm = () => {
                         category.map(category => <option name="category" value={category.id}>{category.label}</option>)
                     }
                 </select>
-            </div> */}
+            </div>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="day_of_week">Day of the week: </label>
