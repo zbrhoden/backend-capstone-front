@@ -11,7 +11,6 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-
         return fetch(process.env.REACT_APP_BACKEND_URL+"/login", {
             method: "POST",
             headers: {

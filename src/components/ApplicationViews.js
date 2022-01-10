@@ -6,9 +6,13 @@ import { DiscountForm } from "./discount/DiscountForm"
 import { EditDiscount } from "./discount/EditDiscount"
 import { StoreList} from "./stores/StoreList"
 import { StoreForm } from "./stores/StoreForm"
+import { Login } from "./auth/Login"
 
 export const ApplicationViews = () => {
     return <>
+        <Route path="/login">
+            <Login />
+        </Route>
         <Route path="/register">
             <Register />
         </Route>
