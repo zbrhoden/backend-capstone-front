@@ -7,7 +7,7 @@ export const NavBar = () => {
     return (
         
         <nav className="navbar">
-            <h1 className="NavBar-brand">Discounts R Us</h1>
+            <h1 className="NavBar-brand">Discounts Manager</h1>
             <li className="navbar__item">
                 <Link style={{ textDecoration: 'none' }} className="nav-link" to="/discounts/new">Create Discounts</Link>
             </li>
