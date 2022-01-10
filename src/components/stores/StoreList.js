@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { deleteStore, getAllStores} from "./StoreManager"
 import { BiX } from "react-icons/bi"
 import { DataGrid} from '@mui/x-data-grid'
+import { Button } from "@mui/material"
 
 export const StoreList = () => {
     const [store, setStore] = useState([])
@@ -10,10 +11,6 @@ export const StoreList = () => {
     const storeFetcher = () => {
         getAllStores()
             .then(data => setStore(data))
-    }
-    
-    const buttons = (store_id) => {
-        return <button onClick={() => handleDelete(store_id)}>Delete</button>
     }
 
     const createStoreRows = () => {
@@ -25,7 +22,6 @@ export const StoreList = () => {
                 const rowObject = {
                     id: row.id,
                     col1: row.name,
-                    col2: buttons(),
                 }
                 rows.push(rowObject)
             }
@@ -56,8 +52,20 @@ export const StoreList = () => {
       const columns= [
         { field: "id", hide: true },
         { field: "col1", headerName: "Store Name", width: 150 },
-        { field: "col2", headerName: "Edit/Delete", width: 150 }
-      ];
+        { field: "field", headerName: "Edit/Delete", width: 150,   
+            renderCell: () => {
+            return (
+              <Button
+                onClick={() => {
+                  handleDelete(store.id);
+                }}
+              >
+                Delete
+              </Button>
+            )
+            }
+        }
+        ];
 
     return (
         <article className="store-list">
@@ -67,18 +75,6 @@ export const StoreList = () => {
       <DataGrid rows={storerows} columns={columns} />
     </div>
             </header>
-            {
-                store.map(store => {
-                    return <section key={store.id} className="store-id">
-                        <div className="Id">{store.id}</div>
-                        <div className="store-name">{store.name}</div>
-
-                            <BiX 
-                                onClick={() => handleDelete(store.id)}
-                                >Delete</BiX>
-            </section>
-            })
-        }
         </article>
     )
 }
