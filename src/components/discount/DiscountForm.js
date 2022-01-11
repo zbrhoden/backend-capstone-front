@@ -141,7 +141,7 @@ export const DiscountForm = () => {
                         day_of_week: currentDiscount.day_of_week,
                         quantity: currentDiscount.quantity,
                         store: currentDiscount.store,
-                        // category: currentDiscount.category,
+                        category: currentDiscount.category,
                         discount_percentage: currentDiscount.discount_percentage
                     }
 
